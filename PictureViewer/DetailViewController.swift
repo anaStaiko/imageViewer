@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var detailViewController: UIImageView!
+    @IBOutlet var detailImageView: UIImageView!
     
     var detailItem: String? {
         didSet {
@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
-            if let imageView = detailViewController {
+            if let imageView = detailImageView {
                imageView.image = UIImage(named: detail)
             }
         }
@@ -32,6 +32,9 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: "shareTapped")
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -44,6 +47,13 @@ class DetailViewController: UIViewController {
         navigationController?.hidesBarsOnTap = false
         
     }
+    
+    func shareTapped() {
+        
+        let activity = UIActivityViewController(activityItems: [detailImageView.image!], applicationActivities: [])
+        presentViewController(activity, animated: true, completion: nil)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

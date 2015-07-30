@@ -97,7 +97,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cra-N8-TIN"/>
                     <connections>
-                        <outlet property="detailViewController" destination="hIX-Jw-qnK" id="xXM-N7-EMO"/>
+                        <outlet property="detailImageView" destination="hIX-Jw-qnK" id="v95-Eb-8Vg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
